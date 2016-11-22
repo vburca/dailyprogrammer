@@ -1,3 +1,5 @@
+*Source*: [#293 Defusing the bomb](https://www.reddit.com/r/dailyprogrammer/comments/5e4mde/20161121_challenge_293_easy_defusing_the_bomb/)
+
 To disarm the bomb you have to cut some wires. These wires are either white, black, purple, red, green or orange.
 
 The rules for disarming are simple:
