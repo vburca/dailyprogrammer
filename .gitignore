@@ -1,3 +1,7 @@
+# VS Code
+.vscode/
+
+# Java
 *.class
 
 # Package Files #
@@ -7,3 +11,14 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Cpp
+*.exe
+*.app
+*.o
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
