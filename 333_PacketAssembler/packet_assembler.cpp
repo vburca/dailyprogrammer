@@ -2,13 +2,14 @@
 #include <string>
 #include <regex>
 #include <map>
+#include <memory>
 #include "Message.cpp"
 
 using namespace std;
 
 int main()
 {
-    map<int, Message> messages;
+    map<int, shared_ptr<Message>> messages;
 
     smatch matches;
     regex input_regex("^(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(.*)\\r?$");
@@ -24,26 +25,22 @@ int main()
             numPackets = stoi(matches[3].str());
             packet = matches[4];
 
-            Message m;
+            shared_ptr<Message> m;
             if (messages.count(messageId) == 0)
             {
-                m = Message(messageId, numPackets);
-                messages.insert(pair<int, Message>(messageId, m));
+                m = make_shared<Message>(messageId, numPackets);
+                messages.insert(pair<int, shared_ptr<Message>>(messageId, m));
             }
             else
             {
                 m = messages[messageId];
             }
 
-            bool done = m.AddPacket(packetId, line);
+            bool done = m->AddPacket(packetId, line);
             if (done)
             {
-                m.PrintMessage();
+                m->PrintMessage();
                 messages.erase(messageId);
-            }
-            else
-            {
-                messages[messageId] = m;
             }
         }
     }
