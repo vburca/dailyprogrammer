@@ -3,7 +3,7 @@
 #include <regex>
 #include <map>
 #include <memory>
-#include "Message.cpp"
+#include "Message.h"
 
 using namespace std;
 
