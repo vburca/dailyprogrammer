@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include "Message.h"
 
 Message::Message() : id(0), n(0) {}
@@ -28,6 +29,6 @@ void Message::PrintMessage()
 {
     for (string s : this->packets)
     {
-        cout << s << endl;
+        std::cout << s << endl;
     }
 }
